@@ -1,380 +1,230 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Тест цветовых энергий</title>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alima Babakpayeva | IT project manager and ML engineer</title>
+<meta name="description" content="IT project manager and ML engineer. Smart home with machine learning, herd intelligence for horses, fashion-tech concept.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #F7F5F2;
-  --card: #FFFFFF;
-  --text: #1A1A1A;
-  --muted: #6B6B6B;
-  --border: rgba(0,0,0,0.09);
-  --r: 14px;
-  --rs: 10px;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-html, body { min-height: 100%; }
-body {
-  font-family: 'Manrope', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  padding: 20px 16px 40px;
-  display: flex;
-  justify-content: center;
-}
-.container { width: 100%; max-width: 600px; }
-.logo {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 0.1em; color: var(--muted);
-  text-align: center; margin-bottom: 24px;
-  text-transform: uppercase;
-}
-.card {
-  background: var(--card);
-  border-radius: var(--r);
-  border: 1px solid var(--border);
-  padding: 32px 28px;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
-}
-@media(max-width:480px){ .card { padding: 24px 18px; } }
-.screen { display: none; }
-.screen.active { display: block; }
+  :root{
+    --bone:#ECE8E6;
+    --oxblood:#4B1220;
+    --walnut:#2E211C;
+    --bronze:#8E6F4E;
+    --rule:#cfc7c3;
+    --serif:"Fraunces", Georgia, "Times New Roman", serif;
+    --sans:"Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bone);color:var(--walnut);font-family:var(--sans);font-size:17px;line-height:1.6}
+  a{color:var(--oxblood);text-underline-offset:3px;text-decoration-thickness:1px}
+  a:focus-visible{outline:2px solid var(--oxblood);outline-offset:3px}
 
-.quad {
-  width: 64px; height: 64px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 3px;
-  border-radius: 16px; overflow: hidden;
-  margin: 0 auto 24px;
-}
-.quad span { display: block; }
-h1 {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 20px; font-weight: 600;
-  text-align: center; line-height: 1.3;
-  margin-bottom: 12px;
-}
-.sub { font-size: 14px; color: var(--muted); line-height: 1.7; text-align: center; margin-bottom: 28px; }
-.meta { display: flex; justify-content: center; gap: 28px; margin-bottom: 28px; }
-.meta-item { text-align: center; font-size: 13px; color: var(--muted); }
-.meta-item strong {
-  display: block;
-  font-family: 'Unbounded', sans-serif;
-  font-size: 22px; font-weight: 600;
-  color: var(--text); margin-bottom: 2px;
-}
-input[type=text] {
-  width: 100%; padding: 14px 16px;
-  font-size: 15px; font-family: 'Manrope', sans-serif;
-  border: 1.5px solid var(--border); border-radius: var(--rs);
-  background: var(--bg); color: var(--text);
-  margin-bottom: 14px; outline: none;
-  transition: border-color .2s;
-}
-input[type=text]:focus { border-color: var(--text); }
+  header{background:var(--oxblood);color:var(--bone);padding:clamp(28px,6vw,64px) clamp(20px,6vw,88px) clamp(36px,7vw,84px)}
+  nav{display:flex;gap:28px;flex-wrap:wrap;font-size:15px;margin-bottom:clamp(48px,10vw,120px)}
+  nav a{color:var(--bone);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+  nav a:hover{border-bottom-color:var(--bone)}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(46px,10.5vw,132px);line-height:.98;letter-spacing:-.02em;margin:0 0 28px}
+  .lede{font-size:clamp(18px,2.2vw,24px);max-width:34em;margin:0;color:#e4d6d3}
 
-.btn {
-  display: block; width: 100%; padding: 16px;
-  font-size: 15px; font-weight: 600; font-family: 'Manrope', sans-serif;
-  background: var(--text); color: #fff;
-  border: none; border-radius: var(--rs);
-  cursor: pointer;
-  touch-action: manipulation;
-  -webkit-touch-callout: none;
-  user-select: none;
-  transition: opacity .15s;
-}
-.btn:active { opacity: 0.7; }
-.btn.sec {
-  background: transparent; color: var(--text);
-  border: 1.5px solid var(--border); font-weight: 500;
-}
-.btn.sec:active { background: var(--bg); opacity: 1; }
-.btn:disabled { opacity: 0.3; pointer-events: none; }
+  main{padding:0 clamp(20px,6vw,88px)}
+  section{display:grid;grid-template-columns:minmax(140px,1fr) 4fr;gap:clamp(16px,4vw,64px);padding:clamp(40px,6vw,72px) 0;border-bottom:1px solid var(--rule)}
+  section:last-of-type{border-bottom:0}
+  h2{font-family:var(--serif);font-weight:400;font-size:26px;margin:0;color:var(--oxblood)}
+  .body{max-width:44rem}
+  h3{font-family:var(--serif);font-weight:600;font-size:22px;margin:0 0 6px}
+  p{margin:0 0 16px}
+  .when{color:var(--bronze);font-size:15px;margin:0 0 10px}
+  .item{margin-bottom:40px}
+  .item:last-child{margin-bottom:0}
+  ul.plain{margin:0 0 16px;padding-left:20px}
+  ul.plain li{margin-bottom:8px}
 
-.prog-wrap { margin-bottom: 24px; }
-.prog-info { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-bottom: 8px; }
-.prog-track { height: 3px; background: rgba(0,0,0,0.08); border-radius: 3px; }
-.prog-fill { height: 3px; background: var(--text); border-radius: 3px; transition: width .4s ease; width: 0; }
+  .parts{margin:20px 0 24px;padding:0;list-style:none;border-top:1px solid var(--walnut)}
+  .parts li{display:grid;grid-template-columns:minmax(120px,1fr) 2fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--rule)}
+  .parts b{font-weight:600}
+  .btn{display:inline-block;background:var(--oxblood);color:var(--bone);padding:12px 22px;text-decoration:none;font-weight:500;border-radius:2px}
+  .btn:hover{background:var(--walnut)}
+  .btn.alt{background:transparent;color:var(--oxblood);border:1px solid var(--oxblood);margin-left:10px}
+  .btn.alt:hover{background:var(--oxblood);color:var(--bone)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px;padding:0;list-style:none}
+  .tags li{border:1px solid var(--bronze);padding:4px 12px;border-radius:999px;font-size:15px}
 
-.q-hint { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+  footer{padding:32px clamp(20px,6vw,88px) 56px;font-size:15px;color:var(--bronze)}
 
-.opts { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
-.opt {
-  display: flex; align-items: center; gap: 14px;
-  padding: 16px 18px;
-  border: 1.5px solid var(--border); border-radius: var(--rs);
-  cursor: pointer;
-  touch-action: manipulation;
-  -webkit-touch-callout: none;
-  user-select: none;
-  font-size: 15px; line-height: 1.5;
-  color: var(--text); background: var(--card);
-  transition: border-color .15s, background .15s;
-}
-.opt.sel { border-color: var(--text); background: var(--bg); }
-.opt-l {
-  width: 30px; height: 30px; flex-shrink: 0;
-  border-radius: 8px; background: var(--bg);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 12px; font-weight: 700; color: var(--muted);
-  transition: background .15s, color .15s;
-}
-.opt.sel .opt-l { background: var(--text); color: #fff; }
-
-.nav { display: grid; grid-template-columns: 1fr 2fr; gap: 10px; }
-
-.badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 7px 16px; border-radius: 99px;
-  font-size: 13px; font-weight: 600; margin-bottom: 16px;
-}
-.res-name { font-family: 'Unbounded', sans-serif; font-size: 22px; font-weight: 600; line-height: 1.3; margin-bottom: 10px; }
-.res-desc { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
-
-.bars { margin-bottom: 24px; }
-.bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-.bar-name { font-size: 13px; font-weight: 600; width: 88px; flex-shrink: 0; }
-.bar-track { flex: 1; height: 6px; background: rgba(0,0,0,0.07); border-radius: 6px; overflow: hidden; }
-.bar-fill { height: 6px; border-radius: 6px; width: 0; transition: width 1s cubic-bezier(.4,0,.2,1); }
-.bar-pct { font-size: 13px; font-weight: 600; color: var(--muted); width: 34px; text-align: right; flex-shrink: 0; }
-
-.ibox { background: var(--bg); border-radius: var(--rs); padding: 16px; margin-bottom: 12px; }
-.ibox-lbl { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-.ibox p { font-size: 14px; line-height: 1.6; }
-.igrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-@media(max-width:420px){ .igrid { grid-template-columns: 1fr; } }
-
-.tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.tag { font-size: 12px; font-weight: 600; padding: 5px 11px; border-radius: 99px; }
-.divider { height: 1px; background: var(--border); margin: 20px 0; }
-.sec-title { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
-.sec-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
+  @media (max-width:720px){
+    section{grid-template-columns:1fr}
+    .parts li{grid-template-columns:1fr;gap:2px}
+    .btn.alt{margin:10px 0 0}
+  }
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="logo">Insights Discovery · Цветовые энергии</div>
-  <div class="card">
-    <div class="screen active" id="s-intro">
-      <div class="quad">
-        <span style="background:#E63946"></span>
-        <span style="background:#F4A422"></span>
-        <span style="background:#2D9B6F"></span>
-        <span style="background:#2B7FD4"></span>
-      </div>
-      <h1>Какая энергия вами движет?</h1>
-      <p class="sub">Определите ваш ведущий стиль взаимодействия. Нет правильных ответов — только ваша естественная реакция.</p>
-      <div class="meta">
-        <div class="meta-item"><strong>20</strong>вопросов</div>
-        <div class="meta-item"><strong>5</strong>минут</div>
-        <div class="meta-item"><strong>4</strong>энергии</div>
-      </div>
-      <input type="text" id="uname" placeholder="Ваше имя (необязательно)">
-      <button class="btn" id="btn-start">Начать тест</button>
+
+<header>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#diploma">Diploma project</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <h1>Alima Babakpayeva</h1>
+  <p class="lede">I turn real-world problems into tech products, from the steppe to fashion.</p>
+</header>
+
+<main>
+
+  <section id="about">
+    <h2>About</h2>
+    <div class="body">
+      <p>Business thinking, engineering hands, a designer's eye. I recently graduated from Astana IT University, where I worked on IoT, machine learning, business analysis and digital marketing.</p>
+      <p>Outside work I follow fashion weeks, cinema and Formula 1, and I paint textured acrylics.</p>
     </div>
+  </section>
 
-    <div class="screen" id="s-test">
-      <div class="prog-wrap">
-        <div class="prog-info">
-          <span id="q-num">Вопрос 1 из 20</span>
-          <span id="q-pct">0%</span>
-        </div>
-        <div class="prog-track"><div class="prog-fill" id="prog"></div></div>
-      </div>
-      <div class="q-hint">Выберите, что вам ближе</div>
-      <div class="opts" id="opts"></div>
-      <div class="nav">
-        <button class="btn sec" id="btn-back">← Назад</button>
-        <button class="btn" id="btn-next">Далее →</button>
+  <section id="diploma">
+    <h2>Diploma project</h2>
+    <div class="body">
+      <div class="item">
+        <h3>SmartHome IoT: a smart home that predicts motion</h3>
+        <p class="when">Astana IT University, April 2026. Team of three. Defended 95/100.</p>
+        <p>A sensor node on an ESP8266 board sends temperature, humidity, light, motion and air quality to the cloud. A machine learning model predicts motion two minutes ahead, so the light can switch on before someone walks in. A phone app shows live data, alerts and a sustainability score tied to four UN Sustainable Development Goals.</p>
+        <ul class="parts">
+          <li><b>Architecture</b><span>I designed the system end to end: sensors, cloud, ML and phone app.</span></li>
+          <li><b>Motion prediction</b><span>Random Forest model with 95.3% accuracy, trained on data from a real room.</span></li>
+          <li><b>Personal comfort</b><span>Alert thresholds adapt to how the user actually behaves.</span></li>
+          <li><b>Anomaly detection</b><span>Z-score checks on temperature, humidity, air quality and light.</span></li>
+          <li><b>Cost</b><span>Components cost under $30. I also calculated the unit economics.</span></li>
+          <li><b>Real-world test</b><span>While we set up the diploma exhibition, the air quality sensor caught spikes from glue and printing materials, and the app sent an alert.</span></li>
+        </ul>
+        <a class="btn" href="https://alimqa.github.io/smart_home/">Open live dashboard</a>
+        <a class="btn alt" href="https://github.com/alimqa/smart_home">See the code on GitHub</a>
       </div>
     </div>
+  </section>
 
-    <div class="screen" id="s-result">
-      <div id="res"></div>
-      <button class="btn sec" id="btn-reset" style="margin-top:10px">Пройти ещё раз</button>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="body">
+      <div class="item">
+        <h3>Herd intelligence for free-roaming horses</h3>
+        <p class="when">Agro-tech</p>
+        <p>A GPS-based system built from my family's farm data. It learns each herd's normal behavior and flags anomalies, like a horse separating from the group. I made it to help my family's farm and reduce horse theft in Kazakhstan.</p>
+        <ul class="parts">
+          <li><b>Trackers</b><span>A GPS tracker on each horse.</span></li>
+          <li><b>Network</b><span>Location data streams in.</span></li>
+          <li><b>ML model</b><span>Learns what normal herd behavior looks like.</span></li>
+          <li><b>Alerts</b><span>The owner is notified of anomalies.</span></li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>Virtual try-on for the CIS fashion market</h3>
+        <p class="when">Fashion-tech, concept</p>
+        <p>A concept for trying garments on digitally, shaped around shoppers and designers in Kazakhstan and the CIS.</p>
+        <ul class="parts">
+          <li><b>Exploring</b><span>AI stylist tools</span></li>
+          <li><b>Exploring</b><span>Platforms for local designers</span></li>
+          <li><b>Exploring</b><span>Luxury resale and rental</span></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<script>
-var qs=[
-  {a:{t:"Я действую быстро и решительно",c:"R"},b:{t:"Я сначала обдумываю, потом действую",c:"B"}},
-  {a:{t:"Мне нравится быть в центре внимания",c:"Y"},b:{t:"Я предпочитаю работать в тишине",c:"G"}},
-  {a:{t:"Меня раздражает медлительность других",c:"R"},b:{t:"Я терпелив и готов выслушать",c:"G"}},
-  {a:{t:"Я руководствуюсь логикой и фактами",c:"B"},b:{t:"Я руководствуюсь интуицией и чувствами",c:"Y"}},
-  {a:{t:"Для меня важен результат, а не процесс",c:"R"},b:{t:"Для меня важны отношения в команде",c:"G"}},
-  {a:{t:"Я люблю мозговые штурмы и новые идеи",c:"Y"},b:{t:"Я предпочитаю чёткий план и структуру",c:"B"}},
-  {a:{t:"Я говорю прямо, даже если это неудобно",c:"R"},b:{t:"Я стараюсь сохранить гармонию в команде",c:"G"}},
-  {a:{t:"Я оптимистичен и заряжаю других энергией",c:"Y"},b:{t:"Я точен и внимателен к деталям",c:"B"}},
-  {a:{t:"Мне важно контролировать ситуацию",c:"R"},b:{t:"Мне важно, чтобы всем было комфортно",c:"G"}},
-  {a:{t:"Я легко завожу новые знакомства",c:"Y"},b:{t:"Я предпочитаю глубокое общение с несколькими людьми",c:"B"}},
-  {a:{t:"Я принимаю решения быстро",c:"R"},b:{t:"Я тщательно анализирую перед решением",c:"B"}},
-  {a:{t:"Я вдохновляю других своим энтузиазмом",c:"Y"},b:{t:"Я поддерживаю других своей надёжностью",c:"G"}},
-  {a:{t:"Мне важно побеждать и достигать целей",c:"R"},b:{t:"Мне важно делать работу правильно и качественно",c:"B"}},
-  {a:{t:"Я люблю перемены и новые вызовы",c:"Y"},b:{t:"Я ценю стабильность и предсказуемость",c:"G"}},
-  {a:{t:"Я напорист и умею убеждать",c:"R"},b:{t:"Я дипломатичен и умею слушать",c:"G"}},
-  {a:{t:"Я генерирую идеи быстро и легко",c:"Y"},b:{t:"Я проверяю идеи на ошибки и противоречия",c:"B"}},
-  {a:{t:"Я берусь за несколько задач одновременно",c:"Y"},b:{t:"Я доделываю одно дело до конца, потом берусь за другое",c:"B"}},
-  {a:{t:"Мне комфортно руководить и принимать решения",c:"R"},b:{t:"Мне комфортно поддерживать и помогать другим",c:"G"}},
-  {a:{t:"Я легко выражаю эмоции",c:"Y"},b:{t:"Я сдержан и редко показываю эмоции",c:"B"}},
-  {a:{t:"Я верю: важнее всего результат",c:"R"},b:{t:"Я верю: важнее всего доверие в команде",c:"G"}}
-];
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="body">
+      <div class="item">
+        <h3>Business analyst intern, Kazdream Special Systems</h3>
+        <p class="when">March to May 2026, Astana. Internship through Astana IT University.</p>
+        <ul class="plain">
+          <li>Wrote the requirements specification for an AI module that scores content automatically (B2B product): requirements, user stories and an evaluation checklist.</li>
+          <li>Mapped AS-IS and TO-BE processes for content moderation.</li>
+          <li>Tested REST APIs in Postman and kept documentation in Confluence.</li>
+          <li>Studied a microservice architecture on Google Cloud: Cloud Run, Pub/Sub, Firestore.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>Project manager, investment projects, Kazakhstan Investment Services &amp; Solutions</h3>
+        <p class="when">2024 to 2025, Astana</p>
+        <ul class="plain">
+          <li>Led a distributed team of 5 to 6 analysts, financiers and industry experts, and managed 2 to 3 projects at the same time.</li>
+          <li>Ran client briefings and weekly sprints, which cut the documentation cycle by 20%.</li>
+          <li>Set up Notion and ClickUp for project work, and built a tracking system for client documents so nothing got lost.</li>
+          <li>Delivered turnkey investment projects for clients applying for state financing programs (DAMU, FRP).</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>Marketer, BroPost Company</h3>
+        <p class="when">2023, Astana</p>
+        <ul class="plain">
+          <li>Tracked metrics weekly in Google Analytics and adjusted the strategy to raise conversion.</li>
+          <li>Organised a PR event for 40 people within budget.</li>
+          <li>Researched the market and competitors in Figma and Miro, which led to two ad campaigns.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>Intern, curator of the Beta Career educational program, Astana Hub</h3>
+        <p class="when">May to August 2021</p>
+        <ul class="plain">
+          <li>Helped manage and organise educational content.</li>
+          <li>Checked that the content matched the learning goals.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-var clrs={
-  R:{name:"Огненно-красный",em:"🔴",hex:"#E63946",light:"#FFF0F1",dark:"#8B1A22",
-     desc:"Энергичны, решительны, ориентированы на результат. Вы двигаете дело вперёд и не боитесь вызовов.",
-     str:["Лидерство","Решительность","Результативность","Напористость"],
-     ch:"Иногда кажетесь нетерпеливым или слишком прямолинейным для окружающих.",
-     tip:"Учитывайте темп других — немного терпения усилит вашу команду.",
-     sec:"Дополнительный акцент на достижение целей и прямолинейное взаимодействие."},
-  Y:{name:"Солнечно-жёлтый",em:"🟡",hex:"#F4A422",light:"#FFFBF0",dark:"#7A4F00",
-     desc:"Энтузиасты и вдохновители. Вы заряжаете команду энергией и легко генерируете свежие идеи.",
-     str:["Энтузиазм","Коммуникабельность","Креативность","Оптимизм"],
-     ch:"Иногда сложно довести начатое до конца или сфокусироваться на деталях.",
-     tip:"Добавьте структуры в свои идеи — тогда они точно воплотятся в жизнь.",
-     sec:"Гибкость, умение вдохновлять и видеть возможности там, где другие не замечают."},
-  G:{name:"Земляной зелёный",em:"🟢",hex:"#2D9B6F",light:"#F0FAF5",dark:"#145C3F",
-     desc:"Надёжная опора команды. Вы терпеливы, заботливы и создаёте атмосферу доверия вокруг себя.",
-     str:["Терпение","Командность","Надёжность","Эмпатия"],
-     ch:"Иногда трудно отказывать или открыто выражать несогласие.",
-     tip:"Ваш голос важен — не бойтесь высказывать своё мнение прямо.",
-     sec:"Ориентация на отношения, стабильность и командное благополучие."},
-  B:{name:"Холодно-синий",em:"🔵",hex:"#2B7FD4",light:"#F0F7FF",dark:"#0D3D6E",
-     desc:"Аналитики и перфекционисты. Вы думаете системно, внимательны к деталям и делаете работу качественно.",
-     str:["Аналитичность","Точность","Системность","Качество"],
-     ch:"Иногда сложно принять решение без полной проверенной информации.",
-     tip:"Доверяйте себе — хорошее решение сейчас лучше идеального завтра.",
-     sec:"Глубина анализа, внимание к деталям и стремление к качеству."}
-};
+  <section id="skills">
+    <h2>Skills and education</h2>
+    <div class="body">
+      <ul class="tags">
+        <li>Python</li>
+        <li>SQL</li>
+        <li>pandas</li>
+        <li>Machine learning</li>
+        <li>Computer vision</li>
+        <li>PyTorch</li>
+        <li>TensorFlow</li>
+        <li>OpenCV</li>
+        <li>REST API</li>
+        <li>UML and BPMN</li>
+        <li>User stories</li>
+        <li>Agile and Scrum</li>
+        <li>Notion</li>
+        <li>ClickUp</li>
+        <li>Figma</li>
+        <li>Miro</li>
+        <li>Docker</li>
+        <li>MongoDB</li>
+        <li>AWS and GCP basics</li>
+      </ul>
+      <div class="item">
+        <h3>Astana IT University</h3>
+        <p class="when">Intelligent Systems, Smart Technologies, graduated 2026</p>
+        <p>AWS Cloud Foundation and AWS Cloud Development certificates, 2026. IELTS 6.5, 2022.</p>
+      </div>
+      <p>Languages: Kazakh (native), Russian (C2), English (C1).</p>
+    </div>
+  </section>
 
-var cnames={R:"Красный",Y:"Жёлтый",G:"Зелёный",B:"Синий"};
-var ans={},cur=0,uname="",nextEnabled=false;
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="body">
+      <p>Telegram: <a href="https://t.me/alimqaa">@alimqaa</a></p>
+      <p>Email: <a href="mailto:babakpayeva.alima@gmail.com">babakpayeva.alima@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/alima-babakpayeva/">alima-babakpayeva</a></p>
+      <p>GitHub: <a href="https://github.com/alimqa">alimqa</a></p>
+    </div>
+  </section>
 
-function g(id){return document.getElementById(id);}
+</main>
 
-function show(id){
-  document.querySelectorAll(".screen").forEach(function(s){s.classList.remove("active");});
-  g(id).classList.add("active");
-  window.scrollTo(0,0);
-}
+<footer>Astana, Kazakhstan</footer>
 
-function setNextEnabled(v){
-  nextEnabled=v;
-  var btn=g("btn-next");
-  if(v){btn.removeAttribute("disabled");btn.style.opacity="";}
-  else{btn.setAttribute("disabled","");btn.style.opacity="0.3";}
-}
-
-function renderQ(){
-  var q=qs[cur];
-  var pct=Math.round(cur/qs.length*100);
-  g("q-num").textContent="Вопрос "+(cur+1)+" из "+qs.length;
-  g("q-pct").textContent=pct+"%";
-  g("prog").style.width=pct+"%";
-  var sel=ans[cur];
-  var html="";
-  ["a","b"].forEach(function(k,i){
-    var s=sel===k;
-    html+='<div class="opt'+(s?" sel":"")+'" data-k="'+k+'">'
-      +'<div class="opt-l">'+(i===0?"А":"Б")+'</div>'
-      +'<span>'+q[k].t+'</span></div>';
-  });
-  g("opts").innerHTML=html;
-  document.querySelectorAll(".opt").forEach(function(el){
-    el.addEventListener("pointerdown",function(e){
-      e.preventDefault();
-      selectOpt(this.getAttribute("data-k"));
-    });
-  });
-  var backBtn=g("btn-back");
-  if(cur===0){backBtn.setAttribute("disabled","");backBtn.style.opacity="0.3";}
-  else{backBtn.removeAttribute("disabled");backBtn.style.opacity="";}
-  setNextEnabled(cur in ans);
-  g("btn-next").textContent=cur===qs.length-1?"Смотреть результат ✓":"Далее →";
-}
-
-function selectOpt(k){
-  ans[cur]=k;
-  document.querySelectorAll(".opt").forEach(function(el){
-    var s=el.getAttribute("data-k")===k;
-    el.classList.toggle("sel",s);
-    var l=el.querySelector(".opt-l");
-    l.style.background=s?"#1A1A1A":"";
-    l.style.color=s?"#fff":"";
-  });
-  setNextEnabled(true);
-}
-
-function goNext(){
-  if(!(cur in ans))return;
-  if(cur===qs.length-1){showResult();return;}
-  cur++;renderQ();
-}
-function goBack(){if(cur>0){cur--;renderQ();}}
-
-function calcScores(){
-  var s={R:0,Y:0,G:0,B:0};
-  qs.forEach(function(q,i){if(i in ans)s[q[ans[i]].c]++;});
-  return s;
-}
-
-function showResult(){
-  var s=calcScores();
-  var total=Object.values(s).reduce(function(a,b){return a+b;},0)||1;
-  var sorted=Object.entries(s).sort(function(a,b){return b[1]-a[1];});
-  var topK=sorted[0][0],c=clrs[topK],pcts={};
-  sorted.forEach(function(e){pcts[e[0]]=Math.round(e[1]/total*100);});
-  var gr=uname?"<strong>"+uname+"</strong>, ваша":"Ваша";
-  var html='<div style="margin-bottom:6px"><span class="badge" style="background:'+c.light+';color:'+c.dark+'">'+c.em+" "+c.name+'</span></div>'
-    +'<div class="res-name">'+gr+' ведущая энергия</div>'
-    +'<p class="res-desc">'+c.desc+'</p><div class="bars">';
-  sorted.forEach(function(e){
-    var k=e[0],p=pcts[k];
-    html+='<div class="bar-row"><div class="bar-name">'+clrs[k].em+" "+cnames[k]+'</div>'
-      +'<div class="bar-track"><div class="bar-fill" id="bf-'+k+'" style="background:'+clrs[k].hex+'"></div></div>'
-      +'<div class="bar-pct">'+p+'%</div></div>';
-  });
-  html+='</div><div class="igrid">'
-    +'<div class="ibox"><div class="ibox-lbl">Сильные стороны</div><div class="tags">';
-  c.str.forEach(function(t){html+='<span class="tag" style="background:'+c.light+';color:'+c.dark+'">'+t+'</span>';});
-  html+='</div></div><div class="ibox"><div class="ibox-lbl">Зона роста</div><p>'+c.ch+'</p></div></div>'
-    +'<div class="ibox"><div class="ibox-lbl">Совет</div><p>'+c.tip+'</p></div>';
-  if(sorted[1][1]>0){
-    var sec=clrs[sorted[1][0]];
-    html+='<div class="divider"></div><div class="sec-title">Вторичная энергия — '+sec.name+'</div><p class="sec-desc">'+sec.sec+'</p>';
-  }
-  g("res").innerHTML=html;
-  show("s-result");
-  setTimeout(function(){
-    sorted.forEach(function(e){var el=g("bf-"+e[0]);if(el)el.style.width=pcts[e[0]]+"%";});
-  },100);
-}
-
-function resetTest(){ans={};cur=0;show("s-intro");}
-
-// All event listeners — no inline onclick
-g("btn-start").addEventListener("pointerdown",function(e){
-  e.preventDefault();
-  uname=g("uname").value.trim();
-  show("s-test");
-  renderQ();
-});
-g("btn-next").addEventListener("pointerdown",function(e){
-  e.preventDefault();
-  goNext();
-});
-g("btn-back").addEventListener("pointerdown",function(e){
-  e.preventDefault();
-  goBack();
-});
-g("btn-reset").addEventListener("pointerdown",function(e){
-  e.preventDefault();
-  resetTest();
-});
-</script>
 </body>
 </html>
